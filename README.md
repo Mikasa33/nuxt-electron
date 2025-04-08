@@ -28,3 +28,5 @@ $ pnpm build
 - [x] Drizzle ORM
 - [x] Tipc
 - [x] Nuxt UI
+
+<img width="1280" alt="image" src="https://github.com/user-attachments/assets/71a52493-b5b4-48c0-b367-7f0efd2e8190" />
