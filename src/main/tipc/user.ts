@@ -1,10 +1,12 @@
+import { tipc } from "@egoist/tipc/main";
 import { db } from "../db";
 import { users } from "../db/schema/users";
-import { procedure } from "../tipc";
+
+const t = tipc.create();
 
 export default {
   // 新增用户
-  add: procedure
+  addUser: t.procedure
     .input<{ name: string; age: number; email: string; remark: string }>()
     .action(async ({ input }) => {
       return db()
@@ -18,7 +20,7 @@ export default {
         .returning();
     }),
   // 查询用户列表
-  list: procedure.action(async () => {
+  listUser: t.procedure.action(async () => {
     return db().select().from(users);
   }),
 };

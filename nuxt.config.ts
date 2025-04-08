@@ -3,13 +3,16 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   css: ["~/assets/css/main.css"],
   devtools: { enabled: true },
+  dir: {
+    app: "src/renderer",
+  },
   electron: {
     build: [
       {
-        entry: "electron/main.ts",
+        entry: "src/main/index.ts",
         vite: {
           build: {
-            outDir: ".electron",
+            outDir: ".electron/main",
             rollupOptions: {
               external: ["@libsql/client"],
             },
@@ -17,10 +20,10 @@ export default defineNuxtConfig({
         },
       },
       {
-        entry: "electron/preload.ts",
+        entry: "src/preload/index.ts",
         vite: {
           build: {
-            outDir: ".electron",
+            outDir: ".electron/preload",
             rollupOptions: {
               output: {
                 entryFileNames: `[name].mjs`,
@@ -38,9 +41,6 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
-  ui: {
-    fonts: false,
-  },
   modules: [
     "@nuxt/eslint",
     "@nuxt/icon",
@@ -49,4 +49,8 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "nuxt-electron",
   ],
+  srcDir: "src/renderer",
+  ui: {
+    fonts: false,
+  },
 });

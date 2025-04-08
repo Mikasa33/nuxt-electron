@@ -9,7 +9,7 @@ const state = ref({
 })
 
 async function onSubmit() {
-  client.add({ ...state.value }).then(res => {
+  client.addUser({ ...state.value }).then(res => {
     console.log(res)
     fetch()
   })
@@ -36,7 +36,7 @@ const columns = [
 const data = ref<unknown[]>([])
 
 function fetch() {
-  client.list().then(res => {
+  client.listUser().then(res => {
     data.value = res
     console.log(res)
   })
