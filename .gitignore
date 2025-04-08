@@ -8,7 +8,6 @@ dist
 
 # Electron dev outputs
 .electron
-.native
 
 # Node dependencies
 node_modules

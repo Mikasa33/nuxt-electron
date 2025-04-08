@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "antfu.iconify",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "Vue.volar",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+    "eamodio.gitlens",
+    "EditorConfig.EditorConfig",
+    "naumovs.color-highlight"
+  ]
+}

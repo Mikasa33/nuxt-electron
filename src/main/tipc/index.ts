@@ -1,7 +1,7 @@
-import user from "./user";
+import user from './user'
 
 export const router = {
   ...user,
-};
+}
 
-export type Router = typeof router;
+export type Router = typeof router

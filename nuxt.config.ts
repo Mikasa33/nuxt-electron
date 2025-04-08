@@ -1,29 +1,35 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2024-11-01",
-  css: ["~/assets/css/main.css"],
+  app: {
+    pageTransition: {
+      name: 'fade-slide',
+      mode: 'out-in',
+    },
+  },
+  compatibilityDate: '2024-11-01',
+  css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
   dir: {
-    app: "src/renderer",
+    app: 'src/renderer',
   },
   electron: {
     build: [
       {
-        entry: "src/main/index.ts",
+        entry: 'src/main/index.ts',
         vite: {
           build: {
-            outDir: ".electron/main",
+            outDir: '.electron/main',
             rollupOptions: {
-              external: ["@libsql/client"],
+              external: ['@libsql/client'],
             },
           },
         },
       },
       {
-        entry: "src/preload/index.ts",
+        entry: 'src/preload/index.ts',
         vite: {
           build: {
-            outDir: ".electron/preload",
+            outDir: '.electron/preload',
             rollupOptions: {
               output: {
                 entryFileNames: `[name].mjs`,
@@ -33,24 +39,35 @@ export default defineNuxtConfig({
         },
         onstart(args) {
           // 在预加载脚本构建完成后，通知渲染器进程重新加载页面，而不是重新启动整个 Electron 应用
-          args.reload();
+          args.reload()
         },
       },
     ],
+  },
+  eslint: {
+    config: {
+      // 自定义配置预设
+      standalone: false,
+    },
+  },
+  experimental: {
+    // 解决跳转路由控制台报错问题
+    appManifest: false,
   },
   future: {
     compatibilityVersion: 4,
   },
   modules: [
-    "@nuxt/eslint",
-    "@nuxt/icon",
-    "@nuxt/scripts",
-    "@nuxt/test-utils",
-    "@nuxt/ui",
-    "nuxt-electron",
+    '@nuxt/eslint',
+    '@nuxt/icon',
+    '@nuxt/scripts',
+    '@nuxt/test-utils',
+    '@nuxt/ui',
+    'nuxt-electron',
   ],
-  srcDir: "src/renderer",
+  srcDir: 'src/renderer',
   ui: {
+    // 解决加载谷歌字体失败问题
     fonts: false,
   },
-});
+})

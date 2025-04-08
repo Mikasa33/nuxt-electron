@@ -1,6 +1,7 @@
+import type { Client } from "@libsql/client"
+
 // 创建表
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function createTables(client: any) {
+export async function createTables(client: Client) {
   const createTableQuery = `
     CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -9,16 +10,15 @@ export async function createTables(client: any) {
         email TEXT NOT NULL,
         remark TEXT
     );
-  `;
-  await client.execute(createTableQuery);
-  await insertInitialData(client);
+  `
+  await client.execute(createTableQuery)
+  await insertInitialData(client)
 }
 
 // 插入初始数据
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function insertInitialData(client: any) {
+export async function insertInitialData(client: Client) {
   const insertQuery = `
     INSERT INTO users (name, age, email) VALUES ('John Doe', 30, 'xxx');
-  `;
-  await client.execute(insertQuery);
+  `
+  await client.execute(insertQuery)
 }
