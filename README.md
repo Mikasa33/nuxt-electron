@@ -6,6 +6,10 @@ Nuxt.js + Electron = 💖
 
 ```bash
 $ pnpm install
+
+# init database
+$ pnpm drizzle-kit generate
+$ pnpm drizzle-kit push
 ```
 
 ## Development Server
