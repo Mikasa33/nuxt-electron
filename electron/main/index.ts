@@ -2,8 +2,8 @@ import os from 'node:os'
 import process from 'node:process'
 import { registerIpcMain } from '@egoist/tipc/main'
 import { app } from 'electron'
-import { connectDatabase } from './db'
-import { router } from './tipc'
+import { router } from '../api'
+import { connectDatabase } from '../db'
 import { restoreOrCreateWindow } from './window'
 
 // 在 Windows 7 中禁用 GPU 加速

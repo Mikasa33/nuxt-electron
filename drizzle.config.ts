@@ -8,7 +8,7 @@ export default defineConfig({
   introspect: {
     casing: 'camel',
   },
-  out: 'src/main/db/migrations',
-  schema: 'src/main/db/schema/*',
+  out: 'server/db/migrations',
+  schema: 'server/db/schema/*',
   verbose: true,
 })

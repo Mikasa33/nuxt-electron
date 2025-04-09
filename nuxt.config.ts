@@ -9,13 +9,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   css: ['~/assets/css/main.css'],
   devtools: { enabled: true },
-  dir: {
-    app: 'src/renderer',
-  },
   electron: {
     build: [
       {
-        entry: 'src/main/index.ts',
+        entry: 'electron/main/index.ts',
         vite: {
           build: {
             outDir: '.electron/main',
@@ -26,7 +23,7 @@ export default defineNuxtConfig({
         },
       },
       {
-        entry: 'src/preload/index.ts',
+        entry: 'electron/preload/index.ts',
         vite: {
           build: {
             outDir: '.electron/preload',
@@ -65,7 +62,6 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     'nuxt-electron',
   ],
-  srcDir: 'src/renderer',
   ui: {
     // 解决加载谷歌字体失败问题
     fonts: false,

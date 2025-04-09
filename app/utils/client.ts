@@ -1,4 +1,4 @@
-import type { Router } from '~~/src/main/tipc'
+import type { Router } from '~~/electron/api'
 import { createClient } from '@egoist/tipc/renderer'
 
 export const client = createClient<Router>({
