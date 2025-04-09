@@ -22,7 +22,7 @@ async function createWindow() {
     },
   })
 
-  if (!app.isPackaged) {
+  if (process.env.VITE_DEV_SERVER_URL) {
     browserWindow.loadURL(process.env.VITE_DEV_SERVER_URL as string)
     // 如果应用程序没有打包，打开开发工具
     browserWindow.webContents.openDevTools()
